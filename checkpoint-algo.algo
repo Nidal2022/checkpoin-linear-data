@@ -1,0 +1,29 @@
+ALGORITHM count
+VAR
+    c:CHAR;
+    ch:STRING:="";
+    nb_mot:INTEGER:=0;
+    nb_carc:INTEGER:=0;
+    nb_voy:INTEGER:=0;
+BEGIN
+REPEAT
+    write("Veuillez taper un caractere");
+    read(c);
+    ch:=ch+c;
+    nb_carc:=nb_carc+1;
+    if(ch[nb_carc-1]=" ")AND(ch[nb_carc]=" ")THEN
+    ch[nb_carc-1]="";
+    nb_carc:=nb_carc-1;
+    ELSE IF(c=" ")THEN
+    nb_mot=nb_mot+1;
+    ELSE IF (ToUppercase(c) in [A,E,I,O,U,Y]) THEN
+    nb_voy:=nb_voy+1;
+    END IF;
+    END IF;
+    END IF;
+UNTIL (c=".");
+write("Nombre de mot :",nb_mot);
+write("Nombre de caractere :",nb_carc);
+write("Nombre de voyelles :",nb_voy);
+
+END
